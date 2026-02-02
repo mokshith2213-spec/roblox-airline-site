@@ -1,41 +1,189 @@
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:Arial,Helvetica,sans-serif;background:#f4f4f4;}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
 
+body{
+background:#000;
+color:white;
+}
+
+/* NAVBAR */
 nav{
+position:fixed;
+top:0;
+width:100%;
 background:#3B0619;
-padding:15px 50px;
+padding:15px 60px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-color:white;
+z-index:1000;
 }
+
+nav strong{
+font-size:20px;
+letter-spacing:2px;
+}
+
 nav a{
 color:white;
 margin-left:20px;
 text-decoration:none;
 font-weight:bold;
+transition:0.3s;
 }
-nav a:hover{color:gold;}
 
+nav a:hover{
+color:gold;
+}
+
+/* HERO SECTION */
+.hero{
+height:100vh;
+background:linear-gradient(135deg,#000000,#3B0619,#000000);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero-content{
+z-index:5;
+animation:fadeIn 2s ease-in-out;
+}
+
+.hero h1{
+font-size:70px;
+letter-spacing:6px;
+font-weight:bold;
+color:white;
+text-shadow:0 0 20px gold;
+}
+
+.hero p{
+font-size:22px;
+margin-top:20px;
+color:gold;
+letter-spacing:2px;
+}
+
+.hero-buttons{
+margin-top:40px;
+}
+
+.hero-buttons a{
+background:gold;
+color:black;
+padding:14px 25px;
+margin:10px;
+text-decoration:none;
+font-weight:bold;
+border-radius:5px;
+transition:0.3s;
+}
+
+.hero-buttons a:hover{
+background:white;
+}
+
+/* CRAZY FLYING PLANE */
+.crazy-plane{
+position:absolute;
+width:350px;
+top:70%;
+left:-500px;
+transform:rotate(20deg);
+animation:flyExtreme 7s linear infinite;
+z-index:2;
+filter:drop-shadow(0 0 25px white);
+}
+
+@keyframes flyExtreme{
+0%{
+left:-500px;
+top:75%;
+transform:rotate(20deg) scale(1);
+}
+25%{
+top:40%;
+transform:rotate(-10deg) scale(1.1);
+}
+50%{
+top:20%;
+transform:rotate(5deg) scale(1.15);
+}
+75%{
+top:50%;
+transform:rotate(-5deg) scale(1.05);
+}
+100%{
+left:120%;
+top:60%;
+transform:rotate(10deg) scale(1);
+}
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* ANNOUNCEMENTS SECTION */
+.announcements{
+padding:120px 10%;
+background:#f4f4f4;
+color:black;
+}
+
+.announcements h2{
+color:#3B0619;
+margin-bottom:20px;
+font-size:32px;
+}
+
+.list-item{
+background:white;
+padding:15px;
+margin:10px 0;
+border-left:5px solid #3B0619;
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* CARD STYLES FOR OTHER PAGES */
 .section{
-padding:100px 10%;
+padding:150px 10%;
+background:#f4f4f4;
+color:black;
+min-height:100vh;
 }
-
-h1,h2{color:#3B0619;margin-bottom:20px;}
 
 .card{
 background:white;
 padding:30px;
 border-radius:10px;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
 max-width:500px;
 margin:auto;
 }
 
-input,select{
+input, select{
 width:100%;
-padding:10px;
+padding:12px;
 margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
 }
 
 button{
@@ -45,12 +193,10 @@ border:none;
 padding:12px;
 width:100%;
 cursor:pointer;
+font-weight:bold;
+transition:0.3s;
 }
 
-button:hover{background:#5c0a28;}
-
-.list-item{
-background:#eee;
-padding:10px;
-margin:5px 0;
+button:hover{
+background:#5c0a28;
 }
