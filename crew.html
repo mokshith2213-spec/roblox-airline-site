@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Crew Login</title>
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+    <title>Crew Login - Qatar Airways Roblox</title>
+    <link rel="stylesheet" href="crew.css">
 </head>
 <body>
 
-<nav>
-<div><strong>QATAR AIRWAYS ROBLOX</strong></div>
-<div><a href="index.html">Home</a></div>
-</nav>
+<div class="background"></div>
 
-<section class="section">
-<div class="card">
-<h2>Crew Login</h2>
-<input id="crewName" placeholder="Crew Name">
-<input id="crewCode" placeholder="Crew Code">
-<select id="crewRank">
-<option>Pilot In Training</option>
-<option>Cabin Crew</option>
-<option>Head Purser</option>
-<option>Second Officer</option>
-<option>Captain</option>
-<option>HR</option>
-<option>SHR</option>
-<option>Vice Chairman</option>
-<option>Chairman</option>
-</select>
-<button onclick="crewLogin()">Login</button>
+<div class="login-container">
+    <h1>QATAR AIRWAYS</h1>
+    <h2>Crew Login Portal</h2>
+
+    <input type="text" id="crewName" placeholder="Enter Your Name">
+
+    <input type="password" id="crewCode" placeholder="Enter Crew Code">
+
+    <select id="rank">
+        <option>Pilot In Training</option>
+        <option>Cabin Crew</option>
+        <option>Head Purser</option>
+        <option>Second Officer</option>
+        <option>Captain</option>
+        <option>HR</option>
+        <option>SHR</option>
+        <option>Vice Chairman</option>
+        <option>Chairman</option>
+    </select>
+
+    <button onclick="crewLogin()">Login</button>
+
+    <p id="message"></p>
 </div>
-</section>
+
+<script>
+const CREW_CODE = "432123";
+
+function crewLogin(){
+    const code = document.getElementById("crewCode").value;
+    const name = document.getElementById("crewName").value;
+    const rank = document.getElementById("rank").value;
+
+    if(code === CREW_CODE){
+        document.getElementById("message").innerHTML =
+        "Welcome " + name + " | Rank: " + rank;
+        document.getElementById("message").style.color = "lightgreen";
+    } else {
+        document.getElementById("message").innerHTML =
+        "Invalid Crew Code";
+        document.getElementById("message").style.color = "red";
+    }
+}
+</script>
 
 </body>
 </html>
