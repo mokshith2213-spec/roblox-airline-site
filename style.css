@@ -8,6 +8,7 @@ font-family:Arial, Helvetica, sans-serif;
 body{
 background:#000;
 color:white;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -40,7 +41,7 @@ nav a:hover{
 color:gold;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero{
 height:100vh;
 background:linear-gradient(135deg,#000000,#3B0619,#000000);
@@ -52,24 +53,29 @@ position:relative;
 overflow:hidden;
 }
 
-.hero-content{
-z-index:5;
-animation:fadeIn 2s ease-in-out;
-}
-
-.hero h1{
-font-size:70px;
+/* TITLE SHIMMER */
+.glow-title{
+font-size:75px;
 letter-spacing:6px;
 font-weight:bold;
-color:white;
-text-shadow:0 0 20px gold;
+background:linear-gradient(90deg,gold,white,gold);
+background-size:200%;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+animation:shine 4s linear infinite;
+text-shadow:0 0 25px rgba(255,215,0,0.6);
+}
+
+@keyframes shine{
+0%{background-position:0%;}
+100%{background-position:200%;}
 }
 
 .hero p{
 font-size:22px;
 margin-top:20px;
 color:gold;
-letter-spacing:2px;
+letter-spacing:3px;
 }
 
 .hero-buttons{
@@ -91,31 +97,31 @@ transition:0.3s;
 background:white;
 }
 
-/* CRAZY FLYING PLANE */
+/* CRAZY PLANE */
 .crazy-plane{
 position:absolute;
-width:350px;
-top:70%;
-left:-500px;
+width:380px;
+top:75%;
+left:-600px;
 transform:rotate(20deg);
-animation:flyExtreme 7s linear infinite;
-z-index:2;
-filter:drop-shadow(0 0 25px white);
+animation:flyExtreme 8s linear infinite;
+z-index:5;
+filter:drop-shadow(0 0 35px white);
 }
 
 @keyframes flyExtreme{
 0%{
-left:-500px;
-top:75%;
+left:-600px;
+top:80%;
 transform:rotate(20deg) scale(1);
 }
 25%{
 top:40%;
-transform:rotate(-10deg) scale(1.1);
+transform:rotate(-15deg) scale(1.1);
 }
 50%{
-top:20%;
-transform:rotate(5deg) scale(1.15);
+top:15%;
+transform:rotate(10deg) scale(1.2);
 }
 75%{
 top:50%;
@@ -123,24 +129,51 @@ transform:rotate(-5deg) scale(1.05);
 }
 100%{
 left:120%;
-top:60%;
-transform:rotate(10deg) scale(1);
+top:65%;
+transform:rotate(15deg) scale(1);
 }
 }
 
-/* FADE ANIMATION */
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+/* CLOUDS */
+.cloud{
+position:absolute;
+background:white;
+opacity:0.05;
+border-radius:50%;
+filter:blur(80px);
+z-index:1;
 }
 
-/* ANNOUNCEMENTS SECTION */
+.cloud1{
+width:500px;
+height:250px;
+top:20%;
+left:-500px;
+animation:cloudMove 60s linear infinite;
+}
+
+.cloud2{
+width:600px;
+height:300px;
+top:50%;
+left:-800px;
+animation:cloudMove 80s linear infinite;
+}
+
+.cloud3{
+width:400px;
+height:200px;
+top:70%;
+left:-400px;
+animation:cloudMove 50s linear infinite;
+}
+
+@keyframes cloudMove{
+0%{left:-800px;}
+100%{left:130%;}
+}
+
+/* ANNOUNCEMENTS */
 .announcements{
 padding:120px 10%;
 background:#f4f4f4;
@@ -159,44 +192,4 @@ padding:15px;
 margin:10px 0;
 border-left:5px solid #3B0619;
 box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-/* CARD STYLES FOR OTHER PAGES */
-.section{
-padding:150px 10%;
-background:#f4f4f4;
-color:black;
-min-height:100vh;
-}
-
-.card{
-background:white;
-padding:30px;
-border-radius:10px;
-box-shadow:0 8px 20px rgba(0,0,0,0.15);
-max-width:500px;
-margin:auto;
-}
-
-input, select{
-width:100%;
-padding:12px;
-margin:10px 0;
-border-radius:5px;
-border:1px solid #ccc;
-}
-
-button{
-background:#3B0619;
-color:white;
-border:none;
-padding:12px;
-width:100%;
-cursor:pointer;
-font-weight:bold;
-transition:0.3s;
-}
-
-button:hover{
-background:#5c0a28;
 }
