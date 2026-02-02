@@ -11,6 +11,7 @@ color:white;
 overflow:hidden;
 }
 
+/* HERO SECTION */
 .hero{
 position:relative;
 height:100vh;
@@ -21,7 +22,7 @@ text-align:center;
 overflow:hidden;
 }
 
-/* DARK OVERLAY GLOW */
+/* GOLD LIGHT GLOW */
 .overlay{
 position:absolute;
 width:100%;
@@ -30,6 +31,7 @@ background:radial-gradient(circle at center,rgba(255,215,0,0.15),transparent 60%
 z-index:1;
 }
 
+/* CONTENT */
 .hero-content{
 position:relative;
 z-index:2;
@@ -41,4 +43,101 @@ background:linear-gradient(90deg,gold,white,gold);
 background-size:200%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation
+animation:shine 4s linear infinite;
+}
+
+@keyframes shine{
+0%{background-position:0%;}
+100%{background-position:200%;}
+}
+
+.subtitle{
+margin-top:10px;
+font-size:18px;
+letter-spacing:3px;
+color:#ddd;
+}
+
+/* BUTTONS */
+.hero-buttons{
+margin-top:30px;
+}
+
+.btn{
+display:inline-block;
+margin:10px;
+padding:12px 25px;
+background:gold;
+color:black;
+text-decoration:none;
+border-radius:8px;
+font-weight:bold;
+transition:0.3s;
+}
+
+.btn:hover{
+background:white;
+transform:scale(1.1);
+}
+
+/* FLYING PLANE */
+.plane{
+position:absolute;
+bottom:120px;
+left:-250px;
+width:180px;
+animation:fly 12s linear infinite;
+z-index:5;
+}
+
+@keyframes fly{
+0%{
+left:-250px;
+transform:rotate(3deg);
+}
+50%{
+transform:rotate(-3deg);
+}
+100%{
+left:110%;
+transform:rotate(3deg);
+}
+}
+
+/* CLOUD EFFECT */
+.cloud{
+position:absolute;
+background:white;
+opacity:0.05;
+border-radius:50%;
+filter:blur(60px);
+}
+
+.cloud1{
+width:400px;
+height:200px;
+top:20%;
+left:-400px;
+animation:cloudMove 60s linear infinite;
+}
+
+.cloud2{
+width:500px;
+height:250px;
+top:50%;
+left:-600px;
+animation:cloudMove 80s linear infinite;
+}
+
+.cloud3{
+width:300px;
+height:150px;
+top:70%;
+left:-300px;
+animation:cloudMove 50s linear infinite;
+}
+
+@keyframes cloudMove{
+0%{left:-600px;}
+100%{left:120%;}
+}
