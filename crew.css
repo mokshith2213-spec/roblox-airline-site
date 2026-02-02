@@ -1,0 +1,86 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(to bottom,#5b0014,#2b0009,#000000);
+overflow:hidden;
+color:white;
+}
+
+/* Moving Background Glow */
+.background{
+position:absolute;
+width:100%;
+height:100%;
+background:radial-gradient(circle at center,rgba(255,215,0,0.15),transparent 60%);
+animation:pulse 6s infinite;
+}
+
+@keyframes pulse{
+0%{opacity:0.5;}
+50%{opacity:1;}
+100%{opacity:0.5;}
+}
+
+.login-container{
+position:relative;
+z-index:2;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:40px;
+width:350px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(255,215,0,0.4);
+text-align:center;
+}
+
+.login-container h1{
+font-size:28px;
+margin-bottom:5px;
+color:gold;
+}
+
+.login-container h2{
+font-size:16px;
+margin-bottom:20px;
+color:#ccc;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+button{
+width:100%;
+padding:10px;
+margin-top:15px;
+background:gold;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+background:white;
+transform:scale(1.05);
+}
+
+#message{
+margin-top:15px;
+font-weight:bold;
+}
