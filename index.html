@@ -1,223 +1,350 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Qatar Airways | Online Check‑in</title>
-  <style>
-    :root {
-      --qa-maroon: #5c0a28;
-      --qa-gold: #c9a24d;
-      --bg: #0f0f12;
-      --card: #17171c;
-      --text: #f5f5f7;
-      --muted: #b8b8c2;
-      --success: #2ecc71;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qatar Airways Roblox</title>
 
-    * { box-sizing: border-box; font-family: "Segoe UI", Roboto, system-ui, sans-serif; }
-    body {
-      margin: 0;
-      background: radial-gradient(1200px 600px at 20% -10%, #3b0b1e, transparent 60%), var(--bg);
-      color: var(--text);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    header {
-      background: linear-gradient(90deg, var(--qa-maroon), #3b071a);
-      padding: 20px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      box-shadow: 0 10px 40px rgba(0,0,0,.5);
-    }
+<style>
 
-    .brand { display: flex; align-items: center; gap: 14px; }
-    .logo {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: radial-gradient(circle at 30% 30%, var(--qa-gold), var(--qa-maroon));
-      display: grid; place-items: center; font-weight: 800;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Poppins',sans-serif;background:#f5f5f5;color:#333;}
 
-    nav button {
-      background: transparent; color: #fff;
-      border: 1px solid rgba(255,255,255,.25);
-      padding: 10px 14px; border-radius: 10px;
-      margin-left: 10px; cursor: pointer;
-    }
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 60px;
+background:rgba(59,6,25,0.95);
+backdrop-filter:blur(6px);
+z-index:1000;
+}
+nav .brand{color:white;font-size:22px;font-weight:700;letter-spacing:2px;}
+nav .brand span{color:gold;}
+nav button{background:gold;border:none;padding:8px 14px;border-radius:4px;font-weight:600;cursor:pointer;}
 
-    nav button.active, nav button:hover {
-      background: rgba(255,255,255,.15);
-    }
+/* HERO */
+.hero{
+height:100vh;
+background:url("https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=1920") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+.hero::after{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+}
+.hero-content{position:relative;z-index:2;}
+.hero h1{font-size:55px;font-weight:700;margin-bottom:20px;}
+.hero p{font-size:20px;margin-bottom:30px;}
+.hero button{padding:14px 30px;background:gold;border:none;font-weight:600;cursor:pointer;}
 
-    main { padding: 32px; max-width: 1200px; margin: auto; }
+/* Animated Plane */
+.plane{
+position:absolute;
+width:220px;
+bottom:20%;
+left:-300px;
+animation:fly 15s linear infinite;
+z-index:2;
+}
+@keyframes fly{
+0%{left:-300px;}
+100%{left:110%;}
+}
 
-    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
-    .card {
-      grid-column: span 6;
-      background: linear-gradient(180deg, #1d1d23, var(--card));
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.55);
-    }
+/* SECTION */
+.section{padding:100px 10%;}
+.section h2{text-align:center;margin-bottom:50px;font-size:32px;color:#3B0619;}
 
-    h2 { margin-top: 0; }
-    label { display: block; margin-top: 14px; font-size: 13px; color: var(--muted); }
-    input, select {
-      width: 100%; margin-top: 6px;
-      padding: 12px 14px; border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: #0f0f14; color: #fff;
-    }
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
 
-    button.primary {
-      margin-top: 18px; padding: 12px 18px;
-      border-radius: 14px; border: none;
-      background: linear-gradient(135deg, var(--qa-maroon), var(--qa-gold));
-      color: #fff; font-weight: 600; cursor: pointer;
-    }
+.card{
+background:white;
+padding:30px;
+border-radius:12px;
+box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
 
-    table { width: 100%; border-collapse: collapse; margin-top: 14px; }
-    th, td { padding: 10px; border-bottom: 1px solid rgba(255,255,255,.08); }
-    th { color: var(--muted); font-weight: 500; }
+.card h3{margin-bottom:15px;color:#3B0619;}
+input,select{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+.card button{
+background:#3B0619;
+color:white;
+border:none;
+padding:12px;
+width:100%;
+cursor:pointer;
+font-weight:600;
+}
+.card button:hover{background:#5c0a28;}
 
-    .hidden { display: none; }
-    .success { color: var(--success); margin-top: 10px; }
+/* ADMIN */
+#adminPanel{display:none;padding:120px 10%;}
+.list-item{
+background:#eee;
+padding:10px;
+margin:8px 0;
+border-radius:5px;
+}
+.list-item button{
+float:right;
+background:#c0392b;
+color:white;
+border:none;
+padding:5px 10px;
+cursor:pointer;
+}
 
-    footer { text-align: center; padding: 24px; color: var(--muted); }
+/* FOOTER */
+footer{
+background:#3B0619;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:60px;
+}
 
-    @media (max-width: 900px) {
-      .card { grid-column: span 12; }
-    }
-  </style>
+</style>
 </head>
 <body>
 
-<header>
-  <div class="brand">
-    <div class="logo">QA</div>
-    <div>
-      <strong>Qatar Airways</strong><br />
-      <small>Online Check‑in & Operations</small>
-    </div>
-  </div>
-  <nav>
-    <button id="btnPassenger" class="active">Passenger</button>
-    <button id="btnAdmin">Administrator</button>
-  </nav>
-</header>
+<nav>
+<div class="brand">QATAR AIRWAYS <span>ROBLOX</span></div>
+<button onclick="scrollToSection()">Book Now</button>
+</nav>
 
-<main>
-  <!-- PASSENGER -->
-  <section id="passengerView" class="grid">
-    <div class="card">
-      <h2>Online Check‑in</h2>
-      <label>Full Name</label>
-      <input id="pName" />
-      <label>Flight Number</label>
-      <input id="pFlight" />
-      <label>Role</label>
-      <select id="pRole"><option>Passenger</option><option>Crew</option></select>
-      <button class="primary" onclick="checkIn()">Check‑in</button>
-      <div id="pMsg" class="success"></div>
-    </div>
+<section class="hero">
+<div class="hero-content">
+<h1>Experience Luxury in the Skies</h1>
+<p>Welcome to Qatar Airways Roblox Executive Portal</p>
+<button onclick="scrollToSection()">Manage Flights</button>
+</div>
+<img src="https://pngimg.com/uploads/airplane/airplane_PNG10275.png" class="plane">
+</section>
 
-    <div class="card">
-      <h2>Flight Announcements</h2>
-      <table id="flightTable">
-        <thead><tr><th>Flight</th><th>Route</th><th>Departure</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
+<section class="section" id="services">
+<h2>Passenger & Crew Services</h2>
 
-  <!-- ADMIN -->
-  <section id="adminView" class="grid hidden">
-    <div class="card">
-      <h2>Post Flight Announcement</h2>
-      <label>Flight Number</label>
-      <input id="aFlight" />
-      <label>Route</label>
-      <input id="aRoute" />
-      <label>Departure Time</label>
-      <input id="aTime" />
-      <button class="primary" onclick="postFlight()">Publish Flight</button>
-    </div>
+<div class="grid">
 
-    <div class="card">
-      <h2>Checked‑in Passengers & Crew</h2>
-      <table id="checkinTable">
-        <thead><tr><th>Name</th><th>Flight</th><th>Role</th></tr></thead>
-        <tbody></tbody>
-      </table>
-    </div>
-  </section>
-</main>
+<div class="card">
+<h3>Book a Flight</h3>
+<input id="bname" placeholder="Full Name">
+<input id="bfrom" placeholder="Departure">
+<input id="bto" placeholder="Destination">
+<select id="bclass">
+<option>Economy Class</option>
+<option>Business Class</option>
+<option>First Class</option>
+</select>
+<button onclick="bookFlight()">Proceed Booking</button>
+</div>
+
+<div class="card">
+<h3>Online Check-In</h3>
+<input id="pname" placeholder="Passenger Name">
+<input id="pflight" placeholder="Flight Number">
+<button onclick="checkIn()">Check In</button>
+</div>
+
+<div class="card">
+<h3>Admin Login</h3>
+<input type="password" id="adminPass" placeholder="Admin Password">
+<button onclick="adminLogin()">Login</button>
+</div>
+
+<div class="card">
+<h3>Crew Login</h3>
+<input id="crewName" placeholder="Crew Name">
+<input id="crewCode" placeholder="Crew Code">
+<select id="crewRank">
+<option>Pilot In Training</option>
+<option>Cabin Crew</option>
+<option>Head Purser</option>
+<option>Second Officer</option>
+<option>Captain</option>
+<option>HR</option>
+<option>SHR</option>
+<option>Vice Chairman</option>
+<option>Chairman</option>
+</select>
+<button onclick="crewLogin()">Login</button>
+</div>
+
+</div>
+</section>
+
+<div id="adminPanel">
+<h2>Executive Dashboard</h2>
+
+<div class="card">
+<h3>Post Flight</h3>
+<input id="flightNumber" placeholder="Flight Number">
+<input id="destination" placeholder="Destination">
+<button onclick="postFlight()">Post Flight</button>
+</div>
+
+<h3>Flights</h3>
+<div id="flightList"></div>
+
+<h3>Passengers</h3>
+<div id="passengerList"></div>
+
+<h3>Crew Members</h3>
+<div id="crewList"></div>
+
+<button onclick="logout()">Logout</button>
+</div>
 
 <footer>
-  Demo airline operations panel • Roblox use
+© 2026 Qatar Airways Roblox | Fan-Made Project
 </footer>
 
 <script>
-  const ADMIN_PASSWORD = "QRADMIN2026"; // CHANGE THIS
 
-  const flights = JSON.parse(localStorage.getItem('flights') || '[]');
-  const checkins = JSON.parse(localStorage.getItem('checkins') || '[]');
+const ADMIN_PASSWORD="QRADMIN2026";
+const CREW_CODE="432123";
 
-  const flightTableBody = document.querySelector('#flightTable tbody');
-  const checkinTableBody = document.querySelector('#checkinTable tbody');
+let flights=JSON.parse(localStorage.getItem("flights"))||[];
+let passengers=JSON.parse(localStorage.getItem("passengers"))||[];
+let crew=JSON.parse(localStorage.getItem("crew"))||[];
 
-  function renderFlights() {
-    flightTableBody.innerHTML = '';
-    flights.forEach(f => {
-      flightTableBody.innerHTML += `<tr><td>${f.no}</td><td>${f.route}</td><td>${f.time}</td></tr>`;
-    });
-  }
+function saveData(){
+localStorage.setItem("flights",JSON.stringify(flights));
+localStorage.setItem("passengers",JSON.stringify(passengers));
+localStorage.setItem("crew",JSON.stringify(crew));
+}
 
-  function renderCheckins() {
-    checkinTableBody.innerHTML = '';
-    checkins.forEach(c => {
-      checkinTableBody.innerHTML += `<tr><td>${c.name}</td><td>${c.flight}</td><td>${c.role}</td></tr>`;
-    });
-  }
+function scrollToSection(){
+document.getElementById("services").scrollIntoView({behavior:"smooth"});
+}
 
-  function postFlight() {
-    flights.push({ no: aFlight.value, route: aRoute.value, time: aTime.value });
-    localStorage.setItem('flights', JSON.stringify(flights));
-    renderFlights();
-    aFlight.value = aRoute.value = aTime.value = '';
-  }
+/* BOOKING */
+function bookFlight(){
+let passenger=document.getElementById("bname").value;
+let from=document.getElementById("bfrom").value;
+let to=document.getElementById("bto").value;
+let travelClass=document.getElementById("bclass").value;
 
-  function checkIn() {
-    checkins.push({ name: pName.value, flight: pFlight.value, role: pRole.value });
-    localStorage.setItem('checkins', JSON.stringify(checkins));
-    pMsg.textContent = 'Check‑in successful.';
-    renderCheckins();
-    pName.value = pFlight.value = '';
-  }
+if(!passenger||!from||!to){
+alert("Please fill all booking details.");
+return;
+}
 
-  btnPassenger.onclick = () => {
-    passengerView.classList.remove('hidden');
-    adminView.classList.add('hidden');
-    btnPassenger.classList.add('active');
-    btnAdmin.classList.remove('active');
-  };
+if(travelClass==="First Class"){
+window.location.href="https://www.roblox.com/catalog/14462518381/First-Class";
+return;
+}
 
-  btnAdmin.onclick = () => {
-    const pwd = prompt('Administrator Access — Enter Password');
-    if (pwd === ADMIN_PASSWORD) {
-      adminView.classList.remove('hidden');
-      passengerView.classList.add('hidden');
-      btnAdmin.classList.add('active');
-      btnPassenger.classList.remove('active');
-    } else {
-      alert('Access Denied');
-    }
-  };
+alert("Booking Confirmed!\n\nPassenger: "+passenger+
+"\nRoute: "+from+" → "+to+
+"\nClass: "+travelClass);
+}
 
-  renderFlights();
-  renderCheckins();
+/* CHECKIN */
+function checkIn(){
+passengers.push({
+name:document.getElementById("pname").value,
+flight:document.getElementById("pflight").value
+});
+saveData();
+alert("Check-In Successful");
+}
+
+/* CREW */
+function crewLogin(){
+if(document.getElementById("crewCode").value===CREW_CODE){
+crew.push({
+name:document.getElementById("crewName").value,
+rank:document.getElementById("crewRank").value
+});
+saveData();
+alert("Crew Logged In");
+}else{
+alert("Invalid Code");
+}
+}
+
+/* ADMIN */
+function adminLogin(){
+if(document.getElementById("adminPass").value===ADMIN_PASSWORD){
+document.getElementById("adminPanel").style.display="block";
+window.scrollTo({top:document.body.scrollHeight,behavior:"smooth"});
+loadAdmin();
+}else{
+alert("Incorrect Password");
+}
+}
+
+function postFlight(){
+flights.push({
+number:document.getElementById("flightNumber").value,
+destination:document.getElementById("destination").value
+});
+saveData();
+loadAdmin();
+}
+
+function loadAdmin(){
+document.getElementById("flightList").innerHTML=
+flights.map((f,i)=>`<div class="list-item">${f.number} → ${f.destination}
+<button onclick="deleteFlight(${i})">Delete</button></div>`).join("");
+
+document.getElementById("passengerList").innerHTML=
+passengers.map(p=>`<div class="list-item">${p.name} - ${p.flight}</div>`).join("");
+
+document.getElementById("crewList").innerHTML=
+crew.map((c,i)=>`<div class="list-item">${c.name} (${c.rank})
+<button onclick="changeRank(${i})">Change Rank</button></div>`).join("");
+}
+
+function deleteFlight(i){
+flights.splice(i,1);
+saveData();
+loadAdmin();
+}
+
+function changeRank(i){
+let r=prompt("New Rank:");
+if(r){
+crew[i].rank=r;
+saveData();
+loadAdmin();
+}
+}
+
+function logout(){
+document.getElementById("adminPanel").style.display="none";
+}
+
 </script>
 
 </body>
 </html>
+
+
